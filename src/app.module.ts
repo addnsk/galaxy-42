@@ -7,10 +7,10 @@ import { UniverseModule } from './modules/universe/universe.module';
   imports: [
     ConfigModule.forRoot(),
     MongooseModule.forRoot(`mongodb://${process.env.MONGO_HOST}:27017`, {
-      auth: {
-        username: process.env.MONGO_INITDB_ROOT_USERNAME,
-        password: process.env.MONGO_INITDB_ROOT_PASSWORD,
-      },
+      // auth: {
+      //   username: process.env.MONGO_INITDB_ROOT_USERNAME,
+      //   password: process.env.MONGO_INITDB_ROOT_PASSWORD,
+      // },
       autoCreate: true,
     }),
     UniverseModule,
