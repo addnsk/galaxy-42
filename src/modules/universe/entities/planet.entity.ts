@@ -3,6 +3,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Document } from 'mongoose';
 import { BodyTypes } from './body-types.enum';
 import { Coordinates } from './coordinates.entity';
+import { Resourses } from './resourses.entity';
 
 @Schema()
 export class PlanetEntity {
@@ -17,6 +18,10 @@ export class PlanetEntity {
   @ApiProperty()
   @Prop()
   populated?: boolean;
+
+  @ApiProperty()
+  @Prop()
+  resourses: Resourses;
 
   @ApiPropertyOptional()
   @Prop()

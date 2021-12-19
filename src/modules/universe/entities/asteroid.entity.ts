@@ -3,6 +3,7 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { Document } from 'mongoose';
 import { BodyTypes } from './body-types.enum';
 import { Coordinates } from './coordinates.entity';
+import { Resourses } from './resourses.entity';
 
 @Schema()
 export class AsteroidEntity {
@@ -13,6 +14,10 @@ export class AsteroidEntity {
   @ApiProperty()
   @Prop({ required: true, unique: true })
   coordinates: Coordinates;
+
+  @ApiProperty()
+  @Prop()
+  resourses: Resourses;
 }
 
 export type AsteroidDocument = AsteroidEntity & Document;

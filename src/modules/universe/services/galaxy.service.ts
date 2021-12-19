@@ -13,6 +13,7 @@ import { MAX_PLANETS, MAX_SOLAR_SYSTEMS, MIN_PLANETS } from '../consts';
 import { ASTEROID_SCHEMA_NAME } from '../entities/asteroid.entity';
 import { PLANET_SCHEMA_NAME } from '../entities/planet.entity';
 import { SUN_SCHEMA_NAME } from '../entities/sun.entity';
+import { Resourses } from '../entities/resourses.entity';
 
 @Injectable()
 export class GalaxyService {
@@ -37,19 +38,26 @@ export class GalaxyService {
     solarSystem: number,
     planetsQuantity: number,
   ) {
+    const resourses = new Resourses(0, 0, 0, 0);
     return {
       coordinates: new Coordinates(
         galaxy,
         solarSystem,
         getRandomIntInclusive(0, planetsQuantity) + 0.5,
       ),
+      resourses,
     };
   }
 
-  private createPlanet(galaxy: number, solarSystem: number, body: number) {
+  private createPlanet(
+    galaxy: number,
+    solarSystem: number,
+    body: number,
+  ): PlanetEntity {
     return {
       coordinates: new Coordinates(galaxy, solarSystem, body),
       populated: false,
+      resourses: new Resourses(5000, 5000, 0, 0),
     };
   }
 
